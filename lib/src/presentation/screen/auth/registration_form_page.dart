@@ -15,7 +15,8 @@ class _RegistFormPageState extends State<RegistrationFormScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   final TextEditingController _fullNameTextController = TextEditingController();
-  final TextEditingController _schoolNameTextController = TextEditingController();
+  final TextEditingController _schoolNameTextController =
+      TextEditingController();
   String? selectedKelas;
   String jenisKelamin = '';
 
@@ -67,6 +68,7 @@ class _RegistFormPageState extends State<RegistrationFormScreen> {
                     FormBuilderValidators.minLength(6),
                   ]),
                 ),
+                const Text('Jenis Kelamin'),
                 DropdownButtonFormField(
                   value: selectedKelas,
                   items: const [
@@ -95,9 +97,12 @@ class _RegistFormPageState extends State<RegistrationFormScreen> {
                           child: Ink(
                             padding: const EdgeInsets.symmetric(vertical: 12),
                             decoration: BoxDecoration(
-                              color: jenisKelamin == 'Laki-laki' ? Colors.blue.withOpacity(0.7) : Colors.white,
+                              color: jenisKelamin == 'Laki-laki'
+                                  ? Colors.blue.withOpacity(0.7)
+                                  : Colors.white,
                               borderRadius: BorderRadius.circular(8),
-                              border: Border.all(color: const Color(0xFFD6D6D6)),
+                              border:
+                                  Border.all(color: const Color(0xFFD6D6D6)),
                             ),
                             child: const Text(
                               'Laki-laki',
@@ -118,7 +123,9 @@ class _RegistFormPageState extends State<RegistrationFormScreen> {
                         child: Container(
                           padding: const EdgeInsets.symmetric(vertical: 12),
                           decoration: BoxDecoration(
-                            color: jenisKelamin == 'Perempuan' ? Colors.green : Colors.white,
+                            color: jenisKelamin == 'Perempuan'
+                                ? Colors.green
+                                : Colors.white,
                             borderRadius: BorderRadius.circular(8),
                             border: Border.all(
                               color: const Color(0xFFD6D6D6),
@@ -150,7 +157,10 @@ class _RegistFormPageState extends State<RegistrationFormScreen> {
                         context.read<AuthBloc>().add(RegisterUserEvent(
                                 request: RegisterUserRequestModel(
                               fullName: _fullNameTextController.text,
-                              email: context.read<AuthBloc>().getCurrentUserEmail() ?? '',
+                              email: context
+                                      .read<AuthBloc>()
+                                      .getCurrentUserEmail() ??
+                                  '',
                               schoolName: _schoolNameTextController.text,
                               schoolLevel: 'SMA',
                               schoolGrade: selectedKelas!,
