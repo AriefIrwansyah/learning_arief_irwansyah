@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "679626912735",
+    "project_id": "fl-arief",
+    "storage_bucket": "fl-arief.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:679626912735:android:e340294bc249b8cb79ca6a",
+        "android_client_info": {
+          "package_name": "id.arief.irwansyah"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "679626912735-isvlel2htjbfqcleinajpc3nsjcvt11l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.arief.irwansyah",
+            "certificate_hash": "1038ca7ce045b04f585d9064d10ca3b5240d39fb"
+          }
+        },
+        {
+          "client_id": "679626912735-c6nhvmittqduv2qhqlirvjmecl2qgier.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJfUlod26XG-qUiEM_kHs0xMn8vJ8oIx4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "679626912735-c6nhvmittqduv2qhqlirvjmecl2qgier.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "679626912735-hrbuubeto53t864fk84rfadh9o08116e.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "id.edspert.learning18"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
