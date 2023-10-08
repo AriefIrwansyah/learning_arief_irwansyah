@@ -1,4 +1,4 @@
-# learning
+# Learning Flutter
 
 Learning Flutter project with edspert.id yang telah dikerjakan sejauh ini.
 
