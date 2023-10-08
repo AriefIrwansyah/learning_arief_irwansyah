@@ -39,11 +39,12 @@ void main() {
         .thenAnswer((realInvocation) async => exampleSuccessData);
 
     /// Act(ion)
-    final result = await getUserUsecase('fikri@gmail.com');
+    final result = await getUserUsecase('ariefirwansyah@gmail.com');
 
     /// Assert
     expect(result, exampleSuccessData);
-    verify(await authRepository.getUserByEmail(email: 'fikri@gmail.com'));
+    verify(
+        await authRepository.getUserByEmail(email: 'ariefirwansyah@gmail.com'));
     verifyNoMoreInteractions(authRepository);
   });
 }
