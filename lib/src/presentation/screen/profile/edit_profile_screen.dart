@@ -15,8 +15,8 @@ class EditProfileScreen extends StatefulWidget {
 }
 
 class _EditProfileScreenState extends State<EditProfileScreen> {
-  TextEditingController _nameController = TextEditingController();
-  TextEditingController _sekolahController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _sekolahController = TextEditingController();
 
   late String jenisKelamin;
   late String kelas;
@@ -28,14 +28,14 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
       final dynamic args = ModalRoute.of(context)?.settings.arguments;
       if (args is UserDataEntity) {
-        print('args: ${args.kelas}');
+        debugPrint('args: ${args.kelas}');
 
         setState(() {
           _sekolahController.text = args.userAsalSekolah;
           _nameController.text = args.userName;
           jenisKelamin = args.userGender;
           kelas = args.kelas;
-          print('kelas: ${args.kelas}');
+          debugPrint('kelas: ${args.kelas}');
           email = args.userEmail;
           photoUrl = args.userFoto;
         });
@@ -59,7 +59,6 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               XFile? imagePicker =
                   await ImagePicker().pickImage(source: ImageSource.gallery);
               if (imagePicker != null) {
-                /// TODO: Pindahkan ke button UPDATE
                 Uint8List? file = await imagePicker.readAsBytes();
                 // Create a storage reference from our app
                 final profilePictureRef = FirebaseStorage.instance.ref(
@@ -69,12 +68,12 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   // Upload raw data.
                   await profilePictureRef.putData(file);
                   String url = await profilePictureRef.getDownloadURL();
-                  print('url download: ${url}');
+                  // print('url download: ${url}');
                   setState(() {
                     photoUrl = url;
                   });
                 } on FirebaseException catch (e) {
-                  print('Err upload $e');
+                  debugPrint('Err upload $e');
                   // ...
                 }
               }
@@ -148,9 +147,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             ? Colors.blue.withOpacity(0.7)
                             : Colors.white,
                         borderRadius: BorderRadius.circular(8),
-                        border: Border.all(color: Color(0xFFD6D6D6)),
+                        border: Border.all(color: const Color(0xFFD6D6D6)),
                       ),
-                      child: Text(
+                      child: const Text(
                         'Laki-laki',
                         textAlign: TextAlign.center,
                       ),
@@ -158,7 +157,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   ),
                 ),
               ),
-              SizedBox(width: 10),
+              const SizedBox(width: 10),
               Expanded(
                 child: InkWell(
                   onTap: () {
@@ -174,7 +173,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                           : Colors.white,
                       borderRadius: BorderRadius.circular(8),
                       border: Border.all(
-                        color: Color(0xFFD6D6D6),
+                        color: const Color(0xFFD6D6D6),
                         width: 1,
                       ),
                     ),
